@@ -16,7 +16,8 @@ export default class DatSelect extends Component {
     labelWidth: PropTypes.string.isRequired,
     liveUpdate: PropTypes.bool.isRequired,
     onUpdate: PropTypes.func,
-    _onUpdateValue: PropTypes.func.isRequired
+    _onUpdateValue: PropTypes.func.isRequired,
+    onChange: PropTypes.func,
   };
 
   static defaultProps = {
@@ -25,7 +26,8 @@ export default class DatSelect extends Component {
     path: null,
     label: null,
     optionLabels: null,
-    onUpdate: () => null
+    onUpdate: () => null,
+    onChange: () => null
   };
 
   constructor() {
@@ -47,9 +49,11 @@ export default class DatSelect extends Component {
 
   handleChange = event => {
     const { value } = event.target;
-    const { liveUpdate, _onUpdateValue, onUpdate, path } = this.props;
+    const { liveUpdate, _onUpdateValue, onUpdate, path, onChange } = this.props;
     _onUpdateValue(path, value);
     if (liveUpdate) onUpdate(value);
+
+    onChange(path, value);
   };
 
   render() {

@@ -1,5 +1,5 @@
 {
-  "name": "react-dat-gui",
+  "name": "react-dat-gui-x",
   "version": "4.1.1",
   "description": "dat.GUI reimagined for React",
   "main": "dist/index.cjs.js",

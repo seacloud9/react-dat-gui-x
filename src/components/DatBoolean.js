@@ -12,14 +12,16 @@ export default class DatBoolean extends Component {
     path: PropTypes.string,
     label: PropTypes.string,
     labelWidth: PropTypes.string.isRequired,
-    _onUpdateValue: PropTypes.func.isRequired
+    _onUpdateValue: PropTypes.func.isRequired,
+    onChange: PropTypes.func,
   };
 
   static defaultProps = {
     className: null,
     style: null,
     path: null,
-    label: null
+    label: null,
+    onChange: () => null
   };
 
   constructor(props) {
@@ -42,9 +44,10 @@ export default class DatBoolean extends Component {
 
   handleChange = event => {
     const value = event.target.checked;
-    const { _onUpdateValue, path } = this.props;
+    const { _onUpdateValue, path, onChange } = this.props;
 
     _onUpdateValue(path, value);
+    onChange(path, value);
   };
 
   render() {

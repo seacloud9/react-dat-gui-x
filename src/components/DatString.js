@@ -14,7 +14,8 @@ export default class DatString extends Component {
     labelWidth: PropTypes.string.isRequired,
     liveUpdate: PropTypes.bool.isRequired,
     onUpdate: PropTypes.func,
-    _onUpdateValue: PropTypes.func.isRequired
+    _onUpdateValue: PropTypes.func.isRequired,
+    onChange: PropTypes.func
   };
 
   static defaultProps = {
@@ -22,7 +23,8 @@ export default class DatString extends Component {
     style: null,
     path: null,
     label: null,
-    onUpdate: () => null
+    onUpdate: () => null,
+    onChange: () => null
   };
 
   constructor() {
@@ -44,9 +46,11 @@ export default class DatString extends Component {
 
   handleChange = event => {
     const { value } = event.target;
-    const { liveUpdate } = this.props;
+    const { liveUpdate, path, onChange } = this.props;
 
     if (liveUpdate) this.update(value);
+
+    onChange(path, value);
   };
 
   handleFocus = () => {

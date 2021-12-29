@@ -51,7 +51,8 @@ export default class DatNumber extends Component {
     label: PropTypes.string,
     labelWidth: PropTypes.string.isRequired,
     _onUpdateValue: PropTypes.func.isRequired,
-    disableSlider: PropTypes.bool
+    disableSlider: PropTypes.bool,
+    onChange: PropTypes.func
   };
 
   static defaultProps = {
@@ -62,7 +63,8 @@ export default class DatNumber extends Component {
     step: null,
     path: null,
     label: null,
-    disableSlider: null
+    disableSlider: null,
+    onChange: () => null
   };
 
   constructor() {
@@ -96,9 +98,10 @@ export default class DatNumber extends Component {
   };
 
   update = value => {
-    const { _onUpdateValue, path } = this.props;
+    const { _onUpdateValue, path,onChange } = this.props;
 
     _onUpdateValue(path, toNumber(value));
+    onChange(path, value);
   };
 
   renderSlider(width) {
