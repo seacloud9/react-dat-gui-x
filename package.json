@@ -1,15 +1,20 @@
 {
   "name": "react-dat-gui-x",
   "version": "4.1.1",
-  "description": "dat.GUI reimagined for React",
+  "description": "dat.GUI reimagined for React (forked from react-dat-gui)",
   "main": "dist/index.cjs.js",
   "exports": "./dist/index.cjs.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
   "style": "dist/index.css",
   "types": "dist/index.d.ts",
-  "author": "Claus Wahlers <claus@codeazur.com.br> (https://github.com/claus)",
+  "author": "Pedro Silva (https://github.com/pabsilva)",
   "contributors": [
+    {
+      "name": "Pedro Silva",
+      "email": "pedro.brandao.silva@gmail.com",
+      "url": "https://github.com/pabsilva"
+    },
     {
       "name": "Claus Wahlers",
       "email": "claus@codeazur.com.br",
@@ -33,10 +38,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:claus/react-dat-gui.git"
+    "url": "git@github.com:pabsilva/react-dat-gui-x.git"
   },
   "bugs": {
-    "url": "https://github.com/claus/react-dat-gui/issues"
+    "url": "https://github.com/pabsilva/react-dat-gui-x/issues"
   },
   "homepage": "https://claus.github.io/react-dat-gui/",
   "files": [
