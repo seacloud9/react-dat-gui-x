@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import isString from 'lodash.isstring';
 import result from 'lodash.result';
@@ -30,6 +30,7 @@ export default class DatSelect extends Component {
     onChange: () => null
   };
 
+
   constructor() {
     super();
     this.state = {
@@ -37,6 +38,7 @@ export default class DatSelect extends Component {
       options: null
     };
   }
+
 
   static getDerivedStateFromProps(nextProps) {
     const nextValue = result(nextProps.data, nextProps.path);
@@ -47,14 +49,16 @@ export default class DatSelect extends Component {
     };
   }
 
+
   handleChange = event => {
-    const { value } = event.target;
-    const { liveUpdate, _onUpdateValue, onUpdate, path, onChange } = this.props;
+    const {value} = event.target;
+    const {liveUpdate, _onUpdateValue, onUpdate, path, onChange} = this.props;
     _onUpdateValue(path, value);
     if (liveUpdate) onUpdate(value);
 
     onChange(path, value);
   };
+
 
   render() {
     const {
@@ -65,26 +69,36 @@ export default class DatSelect extends Component {
       className,
       style
     } = this.props;
-    const { value, options } = this.state;
+    const {value, options} = this.state;
     const labelText = isString(label) ? label : path;
 
     return (
       <li className={cx('cr', 'select', className)} style={style}>
         <label>
-          <span className="label-text" style={{ width: labelWidth }}>
+          <span className="label-text" style={{width: labelWidth}}>
             {labelText}
           </span>
           <select
             value={value}
             onChange={this.handleChange}
-            style={{ width: `calc(100% - ${labelWidth})` }}
+            style={{width: `calc(100% - ${labelWidth})`}}
           >
-            {options.map((item, index) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <option key={index} value={item}>
+            {
+              Array.isArray(options) ?
+              options.map((item, index) => (
+                // eslint-disable-next-line react/no-array-index-key
+                <option key={index} value={item}>
                 {optionLabels ? optionLabels[index] : item}
-              </option>
-            ))}
+                </option>
+              ))
+
+              : Object.entries(options).map(([key, value]) => (
+                  // eslint-disable-next-line react/no-array-index-key
+                  <option key={key} value={key}>
+                    {optionLabels ? optionLabels[key] : value}
+                  </option>
+                ))
+            }
           </select>
         </label>
       </li>

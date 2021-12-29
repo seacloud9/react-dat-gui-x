@@ -26,6 +26,7 @@ class DatGUI extends Component {
       number: 80,
       boolean: true,
       select: 'one',
+      objSelect: 'four',
       color: '#2FA1D6',
       random: 0,
       nested: {
@@ -64,6 +65,7 @@ class DatGUI extends Component {
           number: 40,
           boolean: false,
           select: 'one',
+          objSelect: 'two',
           color: '#e61d5f',
           random: Math.random(),
           nested: {
@@ -78,6 +80,7 @@ class DatGUI extends Component {
           number: 68,
           boolean: true,
           select: 'three',
+          objSelect: 'one',
           color: '#2FD654',
           random: Math.random(),
           nested: {
@@ -115,6 +118,12 @@ class DatGUI extends Component {
             label="Select"
             path="select"
             options={['two', 'three', 'four']}
+            onChange={this.onChange}
+          />
+          <DatSelect
+            label="Select"
+            path="objSelect"
+            options={{'two': 'Two', 'three':'Three', 'four': 'Four'}}
             onChange={this.onChange}
           />
           <DatColor label="Color" path="color" onChange={this.onChange}/>
