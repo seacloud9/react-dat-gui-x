@@ -34,7 +34,9 @@ export default class DatGui extends Component {
   renderChildren() {
     const { children, data } = this.props;
 
-    return React.Children.toArray(children).map((child, i) => {
+    return React.Children.toArray(children)
+      .filter(child => child != null)
+      .map((child, i) => {
       const liveUpdate = isUndefined(child.props.liveUpdate)
         ? this.props.liveUpdate
         : child.props.liveUpdate;

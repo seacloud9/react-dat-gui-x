@@ -31,8 +31,9 @@ export default class DatFolder extends Component {
     // eslint-disable-next-line no-unused-vars
     const { children, title, ...rest } = this.props;
 
-    return React.Children.map(children, child =>
-      cloneElement(child, { ...rest })
+    return React.Children.toArray(children)
+      .filter(child => child != null).map(child =>
+        cloneElement(child, { ...rest })
     );
   }
 
