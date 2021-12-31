@@ -26,6 +26,7 @@ class DatGUI extends Component {
       number: 80,
       boolean: true,
       select: 'one',
+      objSelect: 'four',
       color: '#2FA1D6',
       random: 0,
       nested: {
@@ -51,6 +52,8 @@ class DatGUI extends Component {
       data: { ...prevState.data, ...newData }
     }));
 
+  onChange = (path,value) => console.log('Change at property',path, value)
+
   render() {
     const { data, defaultData } = this.state;
     const presets = [
@@ -62,6 +65,7 @@ class DatGUI extends Component {
           number: 40,
           boolean: false,
           select: 'one',
+          objSelect: 'two',
           color: '#e61d5f',
           random: Math.random(),
           nested: {
@@ -76,6 +80,7 @@ class DatGUI extends Component {
           number: 68,
           boolean: true,
           select: 'three',
+          objSelect: 'one',
           color: '#2FD654',
           random: Math.random(),
           nested: {
@@ -98,7 +103,7 @@ class DatGUI extends Component {
             options={presets}
             onUpdate={this.handleUpdate}
           />
-          <DatString path="string" label="String" />
+          <DatString path="string" label="String" onChange={this.onChange}/>
           <DatNumber
             path="minMaxNumber"
             label="Number"
@@ -106,23 +111,31 @@ class DatGUI extends Component {
             max={100}
             step={1}
           />
-          <DatNumber path="number" label="Number" />
-          <DatBoolean path="boolean" label="Boolean" />
+          <DatNumber path="number" label="Number" onChange={this.onChange}/>
+          <DatBoolean path="boolean" label="Boolean" onChange={this.onChange}/>
           <DatButton label="Button" onClick={this.handleButtonClick} />
           <DatSelect
             label="Select"
             path="select"
             options={['two', 'three', 'four']}
+            onChange={this.onChange}
           />
-          <DatColor label="Color" path="color" />
+          <DatSelect
+            label="Select"
+            path="objSelect"
+            options={{'two': 'Two', 'three':'Three', 'four': 'Four'}}
+            onChange={this.onChange}
+          />
+          <DatColor label="Color" path="color" onChange={this.onChange}/>
           <DatFolder title="Folder">
-            <DatString path="string" label="String" />
+            <DatString path="string" label="String" onChange={this.onChange}/>
             <DatNumber
               path="minMaxNumber"
               label="Number"
               min={0}
               max={100}
               step={1}
+
             />
             <DatFolder title="Nested Folder">
               <DatNumber
@@ -132,7 +145,7 @@ class DatGUI extends Component {
                 max={100}
                 step={1}
               />
-              <DatString path="nested.string" label="String" />
+              <DatString path="nested.string" label="String" onChange={this.onChange}/>
               <DatFolder title="Another Nested Folder">
                 <DatColor label="Color" path="color" />
                 <DatString path="nested.string" label="Nested String" />
