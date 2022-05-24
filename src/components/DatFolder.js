@@ -8,14 +8,16 @@ export default class DatFolder extends Component {
     style: PropTypes.object,
     title: PropTypes.string,
     closed: PropTypes.bool,
-    children: PropTypes.element.isRequired
+    children: PropTypes.element.isRequired,
+    onChange: PropTypes.func,
   };
 
   static defaultProps = {
     className: null,
     style: null,
     title: 'Folder',
-    closed: true
+    closed: true,
+    onChange: () => null
   };
 
   constructor(props) {
