@@ -45,6 +45,7 @@ export class DatUnchangableFieldProps {
 export class DatChangableFieldProps extends DatUnchangableFieldProps {
   path: string;
   onChange?: (path:string, value: any) => any;
+  initialValue: boolean;
 }
 
 export interface DatButtonProps extends DatUnchangableFieldProps {

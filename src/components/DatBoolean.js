@@ -21,6 +21,7 @@ export default class DatBoolean extends Component {
     style: null,
     path: null,
     label: null,
+    initialValue: false,
     onChange: () => null
   };
 
@@ -28,7 +29,7 @@ export default class DatBoolean extends Component {
     super(props);
 
     this.state = {
-      value: null
+      value: props.initialValue
     };
   }
 

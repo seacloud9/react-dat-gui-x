@@ -446,7 +446,7 @@ var DatBoolean = /*#__PURE__*/function (_Component) {
       onChange(path, value);
     });
     _this.state = {
-      value: null
+      value: props.initialValue
     };
     return _this;
   }
@@ -496,6 +496,7 @@ _defineProperty__default["default"](DatBoolean, "defaultProps", {
   style: null,
   path: null,
   label: null,
+  initialValue: false,
   onChange: function onChange() {
     return null;
   }
