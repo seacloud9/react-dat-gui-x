@@ -446,7 +446,7 @@ var DatBoolean = /*#__PURE__*/function (_Component) {
       onChange(path, value);
     });
     _this.state = {
-      value: props.value
+      value: null
     };
     return _this;
   }
@@ -458,8 +458,7 @@ var DatBoolean = /*#__PURE__*/function (_Component) {
         label = _this$props2.label,
         labelWidth = _this$props2.labelWidth,
         className = _this$props2.className,
-        style = _this$props2.style,
-        value = _this$props2.value;
+        style = _this$props2.style;
       var labelText = isString__default["default"](label) ? label : path;
       return /*#__PURE__*/React__default["default"].createElement("li", {
         className: cx__default["default"]('cr', 'boolean', className),
@@ -476,7 +475,7 @@ var DatBoolean = /*#__PURE__*/function (_Component) {
         }
       }, /*#__PURE__*/React__default["default"].createElement("input", {
         type: "checkbox",
-        checked: value,
+        checked: this.state.value,
         onChange: this.handleChange
       }))));
     }
@@ -497,8 +496,6 @@ _defineProperty__default["default"](DatBoolean, "defaultProps", {
   style: null,
   path: null,
   label: null,
-  initialValue: false,
-  value: false,
   onChange: function onChange() {
     return null;
   }

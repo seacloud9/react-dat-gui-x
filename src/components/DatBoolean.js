@@ -21,8 +21,6 @@ export default class DatBoolean extends Component {
     style: null,
     path: null,
     label: null,
-    initialValue: false,
-    value: false,
     onChange: () => null
   };
 
@@ -30,7 +28,7 @@ export default class DatBoolean extends Component {
     super(props);
 
     this.state = {
-      value: props.value
+      value: null
     };
   }
 
@@ -53,7 +51,7 @@ export default class DatBoolean extends Component {
   };
 
   render() {
-    const { path, label, labelWidth, className, style, value } = this.props;
+    const { path, label, labelWidth, className, style } = this.props;
     const labelText = isString(label) ? label : path;
 
     return (
@@ -68,7 +66,7 @@ export default class DatBoolean extends Component {
           >
             <input
               type="checkbox"
-              checked={value}
+              checked={this.state.value}
               onChange={this.handleChange}
             />
           </span>
