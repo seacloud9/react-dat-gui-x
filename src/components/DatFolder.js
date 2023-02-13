@@ -28,13 +28,6 @@ export default class DatFolder extends Component {
   handleClick = () =>
     this.setState(prevState => ({ closed: !prevState.closed }));
 
-  renderChildren() {
-    // Disable this rule to take title out of the props so nested folders can have unique titles.
-    // eslint-disable-next-line no-unused-vars
-    const { children, title, ...rest } = this.props;
-
-    return (children)
-  }
 
   render() {
     const { closed } = this.state;
@@ -52,7 +45,7 @@ export default class DatFolder extends Component {
           >
             {title}
           </div>
-          <ul>{this.renderChildren()}</ul>
+          <ul>{this.props.children}</ul>
         </div>
       </li>
     );

@@ -14,7 +14,6 @@ import isString from 'lodash.isstring';
 import result from 'lodash.result';
 import isFinite$1 from 'lodash.isfinite';
 import clamp from 'lodash.clamp';
-import _objectWithoutProperties from '@babel/runtime/helpers/objectWithoutProperties';
 import _slicedToArray from '@babel/runtime/helpers/slicedToArray';
 import { EditableInput, ColorWrap, Saturation, Hue } from 'react-color/lib/components/common';
 import color from 'react-color/lib/helpers/color';
@@ -496,7 +495,6 @@ DatButton.defaultProps = {
   label: null
 };
 
-var _excluded = ["children", "title"];
 function _createSuper$5(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$5(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 function _isNativeReflectConstruct$5() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 var DatFolder = /*#__PURE__*/function (_Component) {
@@ -519,24 +517,13 @@ var DatFolder = /*#__PURE__*/function (_Component) {
     return _this;
   }
   _createClass(DatFolder, [{
-    key: "renderChildren",
-    value: function renderChildren() {
-      // Disable this rule to take title out of the props so nested folders can have unique titles.
-      // eslint-disable-next-line no-unused-vars
-      var _this$props = this.props,
-        children = _this$props.children;
-        _this$props.title;
-        _objectWithoutProperties(_this$props, _excluded);
-      return children;
-    }
-  }, {
     key: "render",
     value: function render() {
       var closed = this.state.closed;
-      var _this$props2 = this.props,
-        title = _this$props2.title,
-        className = _this$props2.className,
-        style = _this$props2.style;
+      var _this$props = this.props,
+        title = _this$props.title,
+        className = _this$props.className,
+        style = _this$props.style;
       return /*#__PURE__*/React.createElement("li", {
         className: cx('folder', {
           closed: closed
@@ -550,7 +537,7 @@ var DatFolder = /*#__PURE__*/function (_Component) {
         onKeyPress: this.handleClick,
         role: "button",
         tabIndex: 0
-      }, title), /*#__PURE__*/React.createElement("ul", null, this.renderChildren())));
+      }, title), /*#__PURE__*/React.createElement("ul", null, this.props.children)));
     }
   }]);
   return DatFolder;

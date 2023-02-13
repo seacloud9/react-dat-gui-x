@@ -18,7 +18,6 @@ var isString = require('lodash.isstring');
 var result = require('lodash.result');
 var isFinite$1 = require('lodash.isfinite');
 var clamp = require('lodash.clamp');
-var _objectWithoutProperties = require('@babel/runtime/helpers/objectWithoutProperties');
 var _slicedToArray = require('@babel/runtime/helpers/slicedToArray');
 var common = require('react-color/lib/components/common');
 var color = require('react-color/lib/helpers/color');
@@ -42,7 +41,6 @@ var isString__default = /*#__PURE__*/_interopDefaultLegacy(isString);
 var result__default = /*#__PURE__*/_interopDefaultLegacy(result);
 var isFinite__default = /*#__PURE__*/_interopDefaultLegacy(isFinite$1);
 var clamp__default = /*#__PURE__*/_interopDefaultLegacy(clamp);
-var _objectWithoutProperties__default = /*#__PURE__*/_interopDefaultLegacy(_objectWithoutProperties);
 var _slicedToArray__default = /*#__PURE__*/_interopDefaultLegacy(_slicedToArray);
 var color__default = /*#__PURE__*/_interopDefaultLegacy(color);
 var _toConsumableArray__default = /*#__PURE__*/_interopDefaultLegacy(_toConsumableArray);
@@ -523,7 +521,6 @@ DatButton.defaultProps = {
   label: null
 };
 
-var _excluded = ["children", "title"];
 function _createSuper$5(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$5(); return function _createSuperInternal() { var Super = _getPrototypeOf__default["default"](Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf__default["default"](this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn__default["default"](this, result); }; }
 function _isNativeReflectConstruct$5() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 var DatFolder = /*#__PURE__*/function (_Component) {
@@ -546,24 +543,13 @@ var DatFolder = /*#__PURE__*/function (_Component) {
     return _this;
   }
   _createClass__default["default"](DatFolder, [{
-    key: "renderChildren",
-    value: function renderChildren() {
-      // Disable this rule to take title out of the props so nested folders can have unique titles.
-      // eslint-disable-next-line no-unused-vars
-      var _this$props = this.props,
-        children = _this$props.children;
-        _this$props.title;
-        _objectWithoutProperties__default["default"](_this$props, _excluded);
-      return children;
-    }
-  }, {
     key: "render",
     value: function render() {
       var closed = this.state.closed;
-      var _this$props2 = this.props,
-        title = _this$props2.title,
-        className = _this$props2.className,
-        style = _this$props2.style;
+      var _this$props = this.props,
+        title = _this$props.title,
+        className = _this$props.className,
+        style = _this$props.style;
       return /*#__PURE__*/React__default["default"].createElement("li", {
         className: cx__default["default"]('folder', {
           closed: closed
@@ -577,7 +563,7 @@ var DatFolder = /*#__PURE__*/function (_Component) {
         onKeyPress: this.handleClick,
         role: "button",
         tabIndex: 0
-      }, title), /*#__PURE__*/React__default["default"].createElement("ul", null, this.renderChildren())));
+      }, title), /*#__PURE__*/React__default["default"].createElement("ul", null, this.props.children)));
     }
   }]);
   return DatFolder;
