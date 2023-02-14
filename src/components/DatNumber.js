@@ -75,7 +75,6 @@ export default class DatNumber extends Component {
   componentDidUpdate(nextProps) {
     const { min, max, stepN } = nextProps;
     const { step } = this.props.step;
-    console.log("componentDidUpdate", nextProps, this.props)
     if(stepN !== step){
       const nextValue = applyConstraints({
         value: result(nextProps.data, nextProps.path),
@@ -83,10 +82,7 @@ export default class DatNumber extends Component {
         max,
         step
       });
-  
-      return {
-        value: nextValue
-      };
+      this.setState({value: nextValue})
     }
    
   }
@@ -103,7 +99,7 @@ export default class DatNumber extends Component {
   };
 
   update = value => {
-    const { _onUpdateValue, path,onChange } = this.props;
+    const { _onUpdateValue, path, onChange } = this.props;
     
     _onUpdateValue(path, toNumber(value));
     onChange(path, value);
