@@ -335,14 +335,14 @@ var DatNumber = /*#__PURE__*/function (_Component) {
   }
   _createClass__default["default"](DatNumber, [{
     key: "componentDidUpdate",
-    value: function componentDidUpdate(nextProps) {
-      var min = nextProps.min,
-        max = nextProps.max,
-        stepN = nextProps.stepN;
+    value: function componentDidUpdate(previoiusProps) {
+      var min = previoiusProps.min,
+        max = previoiusProps.max,
+        stepN = previoiusProps.stepN;
       var step = this.props.step;
       if (stepN !== step) {
         var nextValue = applyConstraints({
-          value: result__default["default"](nextProps.data, nextProps.path),
+          value: result__default["default"](step, previoiusProps.path),
           min: min,
           max: max,
           step: step
