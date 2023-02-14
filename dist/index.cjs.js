@@ -327,9 +327,6 @@ var DatNumber = /*#__PURE__*/function (_Component) {
         onChange = _this$props2.onChange;
       _onUpdateValue(path, toNumber(value));
       onChange(path, value);
-      _this.setState({
-        value: value
-      });
     });
     _this.state = {
       value: null
@@ -396,26 +393,20 @@ var DatNumber = /*#__PURE__*/function (_Component) {
       }))));
     }
   }], [{
-    key: "componentDidUpdate",
-    value: function componentDidUpdate(nextProps) {
-      nextProps.minN;
-        nextProps.maxN;
-        var stepN = nextProps.stepN;
-      var _this$props5 = this.props,
-        min = _this$props5.min,
-        max = _this$props5.max,
-        step = _this$props5.step;
-      if (step !== stepN) {
-        var nextValue = applyConstraints({
-          value: result__default["default"](nextProps.data, nextProps.path),
-          min: min,
-          max: max,
-          step: step
-        });
-        return {
-          value: nextValue
-        };
-      }
+    key: "getDerivedStateFromProps",
+    value: function getDerivedStateFromProps(nextProps) {
+      var min = nextProps.min,
+        max = nextProps.max,
+        step = nextProps.step;
+      var nextValue = applyConstraints({
+        value: result__default["default"](nextProps.data, nextProps.path),
+        min: min,
+        max: max,
+        step: step
+      });
+      return {
+        value: nextValue
+      };
     }
   }]);
   return DatNumber;
