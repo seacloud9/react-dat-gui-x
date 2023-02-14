@@ -67,9 +67,9 @@ export default class DatNumber extends Component {
     onChange: () => null
   };
 
-  constructor() {
-    super();
-    this.state = { value: this.props.step };
+  constructor(props) {
+    super(props);
+    this.state = { value: props.step };
   }
 
   static componentDidUpdate(nextProps) {

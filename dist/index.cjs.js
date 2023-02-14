@@ -300,10 +300,10 @@ var applyConstraints = function applyConstraints(_ref) {
 var DatNumber = /*#__PURE__*/function (_Component) {
   _inherits__default["default"](DatNumber, _Component);
   var _super = _createSuper$7(DatNumber);
-  function DatNumber() {
+  function DatNumber(props) {
     var _this;
     _classCallCheck__default["default"](this, DatNumber);
-    _this = _super.call(this);
+    _this = _super.call(this, props);
     _defineProperty__default["default"](_assertThisInitialized__default["default"](_this), "handleChange", function (event) {
       var value = event.target.value;
       _this.update(value);
@@ -329,7 +329,7 @@ var DatNumber = /*#__PURE__*/function (_Component) {
       onChange(path, value);
     });
     _this.state = {
-      value: _this.props.step
+      value: props.step
     };
     return _this;
   }
