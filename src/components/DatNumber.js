@@ -72,12 +72,12 @@ export default class DatNumber extends Component {
     this.state = { value: null };
   }
 
-  componentDidUpdate(nextProps) {
-    const { min, max, stepN } = nextProps;
+  componentDidUpdate(previoiusProps) {
+    const { min, max, stepN } = previoiusProps;
     const { step } = this.props;
     if(stepN !== step){
       const nextValue = applyConstraints({
-        value: result(nextProps.data, nextProps.path),
+        value: result(step, previoiusProps.path),
         min,
         max,
         step
