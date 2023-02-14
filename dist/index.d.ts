@@ -73,7 +73,7 @@ export interface DatPresetsProps extends DatUnchangableFieldProps {
 export class DatPresets extends React.Component<DatPresetsProps, any> {}
 
 export interface DatBooleanProps extends DatChangableFieldProps {
-  value: any;
+  checked: boolean;
 }
 
 export class DatBoolean extends React.Component<DatBooleanProps, any> {
