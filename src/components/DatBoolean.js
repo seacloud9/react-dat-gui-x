@@ -28,21 +28,8 @@ export default class DatBoolean extends Component {
 
   constructor(props) {
     super(props);
-
-    this.state = {
-      value: props.checked
-    };
   }
 
-  static getDerivedStateFromProps(nextProps, prevState) {
-    const nextValue = result(nextProps.data, nextProps.path);
-
-    if (prevState.value === nextValue) return null;
-
-    return {
-      value: nextValue
-    };
-  }
 
   handleChange = event => {
     const value = event.target.checked;
@@ -53,7 +40,7 @@ export default class DatBoolean extends Component {
   };
 
   render() {
-    const { path, label, labelWidth, className, style } = this.props;
+    const { path, label, labelWidth, className, style, checked } = this.props;
     const labelText = isString(label) ? label : path;
 
     return (
@@ -68,7 +55,7 @@ export default class DatBoolean extends Component {
           >
             <input
               type="checkbox"
-              checked={this.state.value}
+              checked={checked}
               onChange={this.handleChange}
             />
           </span>

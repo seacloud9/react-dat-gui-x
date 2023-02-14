@@ -443,9 +443,6 @@ var DatBoolean = /*#__PURE__*/function (_Component) {
       _onUpdateValue(path, value);
       onChange(path, value);
     });
-    _this.state = {
-      value: props.checked
-    };
     return _this;
   }
   _createClass__default["default"](DatBoolean, [{
@@ -456,7 +453,8 @@ var DatBoolean = /*#__PURE__*/function (_Component) {
         label = _this$props2.label,
         labelWidth = _this$props2.labelWidth,
         className = _this$props2.className,
-        style = _this$props2.style;
+        style = _this$props2.style,
+        checked = _this$props2.checked;
       var labelText = isString__default["default"](label) ? label : path;
       return /*#__PURE__*/React__default["default"].createElement("li", {
         className: cx__default["default"]('cr', 'boolean', className),
@@ -473,18 +471,9 @@ var DatBoolean = /*#__PURE__*/function (_Component) {
         }
       }, /*#__PURE__*/React__default["default"].createElement("input", {
         type: "checkbox",
-        checked: this.state.value,
+        checked: checked,
         onChange: this.handleChange
       }))));
-    }
-  }], [{
-    key: "getDerivedStateFromProps",
-    value: function getDerivedStateFromProps(nextProps, prevState) {
-      var nextValue = result__default["default"](nextProps.data, nextProps.path);
-      if (prevState.value === nextValue) return null;
-      return {
-        value: nextValue
-      };
     }
   }]);
   return DatBoolean;
