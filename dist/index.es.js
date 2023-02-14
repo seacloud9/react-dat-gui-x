@@ -312,17 +312,16 @@ var DatNumber = /*#__PURE__*/function (_Component) {
     value: function componentDidUpdate(previoiusProps) {
       var min = previoiusProps.min,
         max = previoiusProps.max,
-        stepN = previoiusProps.stepN;
-      var step = this.props.step;
-      if (stepN !== step) {
+        step = previoiusProps.step;
+      if (step !== this.props.step) {
         applyConstraints({
-          value: result(step, previoiusProps.path),
+          value: result(this.props.step, previoiusProps.path),
           min: min,
           max: max,
-          step: step
+          step: this.props.step
         });
         this.setState({
-          value: step
+          value: this.props.step
         });
       }
     }
