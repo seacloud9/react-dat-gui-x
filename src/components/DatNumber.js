@@ -72,18 +72,22 @@ export default class DatNumber extends Component {
     this.state = { value: null };
   }
 
-  static getDerivedStateFromProps(nextProps) {
-    const { min, max, step } = nextProps;
-    const nextValue = applyConstraints({
-      value: result(nextProps.data, nextProps.path),
-      min,
-      max,
-      step
-    });
-
-    return {
-      value: nextValue
-    };
+  static componentDidUpdate(nextProps) {
+    const { min, max, stepN } = nextProps;
+    const { step } = this.props.step;
+    if(stepN !== step){
+      const nextValue = applyConstraints({
+        value: result(nextProps.data, nextProps.path),
+        min,
+        max,
+        step
+      });
+  
+      return {
+        value: nextValue
+      };
+    }
+   
   }
 
   handleChange = event => {

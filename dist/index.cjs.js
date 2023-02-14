@@ -393,20 +393,23 @@ var DatNumber = /*#__PURE__*/function (_Component) {
       }))));
     }
   }], [{
-    key: "getDerivedStateFromProps",
-    value: function getDerivedStateFromProps(nextProps) {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(nextProps) {
       var min = nextProps.min,
         max = nextProps.max,
-        step = nextProps.step;
-      var nextValue = applyConstraints({
-        value: result__default["default"](nextProps.data, nextProps.path),
-        min: min,
-        max: max,
-        step: step
-      });
-      return {
-        value: nextValue
-      };
+        stepN = nextProps.stepN;
+      var step = this.props.step.step;
+      if (stepN !== step) {
+        var nextValue = applyConstraints({
+          value: result__default["default"](nextProps.data, nextProps.path),
+          min: min,
+          max: max,
+          step: step
+        });
+        return {
+          value: nextValue
+        };
+      }
     }
   }]);
   return DatNumber;
