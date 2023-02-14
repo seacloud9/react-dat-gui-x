@@ -11,6 +11,7 @@ export default class DatBoolean extends Component {
     data: PropTypes.object.isRequired,
     path: PropTypes.string,
     label: PropTypes.string,
+    value: PropTypes.any,
     labelWidth: PropTypes.string.isRequired,
     _onUpdateValue: PropTypes.func.isRequired,
     onChange: PropTypes.func,
@@ -21,6 +22,7 @@ export default class DatBoolean extends Component {
     style: null,
     path: null,
     label: null,
+    value:null,
     onChange: () => null
   };
 
@@ -28,7 +30,7 @@ export default class DatBoolean extends Component {
     super(props);
 
     this.state = {
-      value: null
+      value: props.value
     };
   }
 
