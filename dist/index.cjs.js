@@ -398,14 +398,14 @@ var DatNumber = /*#__PURE__*/function (_Component) {
   }], [{
     key: "componentDidUpdate",
     value: function componentDidUpdate(nextProps) {
-      var minN = nextProps.minN,
-        maxN = nextProps.maxN,
-        stepN = nextProps.stepN;
+      nextProps.minN;
+        nextProps.maxN;
+        var stepN = nextProps.stepN;
       var _this$props5 = this.props,
         min = _this$props5.min,
         max = _this$props5.max,
         step = _this$props5.step;
-      if (minN !== min && max !== maxN && step !== stepN) {
+      if (step !== stepN) {
         var nextValue = applyConstraints({
           value: result__default["default"](nextProps.data, nextProps.path),
           min: min,

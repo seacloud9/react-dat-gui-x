@@ -75,7 +75,7 @@ export default class DatNumber extends Component {
   static componentDidUpdate(nextProps) {
     const { minN, maxN, stepN } = nextProps;
     const { min, max, step } = this.props;
-    if(minN !== min && max !== maxN && step !== stepN){
+    if(step !== stepN){
       const nextValue = applyConstraints({
         value: result(nextProps.data, nextProps.path),
         min,
