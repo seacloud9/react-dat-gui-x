@@ -69,12 +69,13 @@ export default class DatNumber extends Component {
 
   constructor() {
     super();
-    this.state = { value: null };
+    this.state = { value: this.props.step };
   }
 
   static componentDidUpdate(nextProps) {
     const { min, max, stepN } = nextProps;
     const { step } = this.props.step;
+    console.log("componentDidUpdate", nextProps, this.props)
     if(stepN !== step){
       const nextValue = applyConstraints({
         value: result(nextProps.data, nextProps.path),
