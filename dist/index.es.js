@@ -313,7 +313,7 @@ var DatNumber = /*#__PURE__*/function (_Component) {
       var _this$props3 = this.props,
         min = _this$props3.min,
         max = _this$props3.max;
-      var value = this.state.value;
+      var value = this.props.value.value;
       return /*#__PURE__*/React.createElement(Slider, {
         value: value,
         min: min,
@@ -359,7 +359,7 @@ var DatNumber = /*#__PURE__*/function (_Component) {
         min: min,
         max: max,
         inputMode: "numeric",
-        value: this.state.value,
+        value: this.props.value,
         style: {
           width: "".concat(inputWidth, "%")
         },
@@ -414,8 +414,8 @@ var DatBoolean = /*#__PURE__*/function (_Component) {
         _onUpdateValue = _this$props._onUpdateValue,
         path = _this$props.path,
         onChange = _this$props.onChange;
-      _onUpdateValue(path, value);
-      onChange(path, value);
+      _onUpdateValue(path, value, event);
+      onChange(path, value, event);
     });
     return _this;
   }

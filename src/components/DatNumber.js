@@ -106,7 +106,7 @@ export default class DatNumber extends Component {
 
   renderSlider(width) {
     const { min, max } = this.props;
-    const { value } = this.state;
+    const { value } = this.props.value;
 
     return (
       <Slider
@@ -158,7 +158,7 @@ export default class DatNumber extends Component {
               min={min}
               max={max}
               inputMode="numeric"
-              value={this.state.value}
+              value={this.props.value}
               style={{ width: `${inputWidth}%` }}
               onChange={this.handleChange}
             />

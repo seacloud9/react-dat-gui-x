@@ -35,8 +35,8 @@ export default class DatBoolean extends Component {
     const value = event.target.checked;
     const { _onUpdateValue, path, onChange } = this.props;
 
-    _onUpdateValue(path, value);
-    onChange(path, value);
+    _onUpdateValue(path, value, event);
+    onChange(path, value, event);
   };
 
   render() {
