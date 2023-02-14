@@ -308,6 +308,26 @@ var DatNumber = /*#__PURE__*/function (_Component) {
     return _this;
   }
   _createClass(DatNumber, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(nextProps) {
+      var min = nextProps.min,
+        max = nextProps.max,
+        stepN = nextProps.stepN;
+      var step = this.props.step.step;
+      console.log("componentDidUpdate", nextProps, this.props);
+      if (stepN !== step) {
+        var nextValue = applyConstraints({
+          value: result(nextProps.data, nextProps.path),
+          min: min,
+          max: max,
+          step: step
+        });
+        return {
+          value: nextValue
+        };
+      }
+    }
+  }, {
     key: "renderSlider",
     value: function renderSlider(width) {
       var _this$props3 = this.props,
@@ -365,26 +385,6 @@ var DatNumber = /*#__PURE__*/function (_Component) {
         },
         onChange: this.handleChange
       }))));
-    }
-  }], [{
-    key: "componentDidUpdate",
-    value: function componentDidUpdate(nextProps) {
-      var min = nextProps.min,
-        max = nextProps.max,
-        stepN = nextProps.stepN;
-      var step = this.props.step.step;
-      console.log("componentDidUpdate", nextProps, this.props);
-      if (stepN !== step) {
-        var nextValue = applyConstraints({
-          value: result(nextProps.data, nextProps.path),
-          min: min,
-          max: max,
-          step: step
-        });
-        return {
-          value: nextValue
-        };
-      }
     }
   }]);
   return DatNumber;

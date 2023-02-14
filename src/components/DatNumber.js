@@ -72,7 +72,7 @@ export default class DatNumber extends Component {
     this.state = { value: props.step };
   }
 
-  static componentDidUpdate(nextProps) {
+  componentDidUpdate(nextProps) {
     const { min, max, stepN } = nextProps;
     const { step } = this.props.step;
     console.log("componentDidUpdate", nextProps, this.props)
