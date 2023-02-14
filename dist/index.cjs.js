@@ -329,7 +329,7 @@ var DatNumber = /*#__PURE__*/function (_Component) {
       onChange(path, value);
     });
     _this.state = {
-      value: props.step
+      value: null
     };
     return _this;
   }
@@ -339,7 +339,7 @@ var DatNumber = /*#__PURE__*/function (_Component) {
       var min = nextProps.min,
         max = nextProps.max,
         stepN = nextProps.stepN;
-      var step = this.props.step.step;
+      var step = this.props.step;
       if (stepN !== step) {
         var nextValue = applyConstraints({
           value: result__default["default"](nextProps.data, nextProps.path),
