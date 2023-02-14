@@ -301,6 +301,9 @@ var DatNumber = /*#__PURE__*/function (_Component) {
         onChange = _this$props2.onChange;
       _onUpdateValue(path, toNumber(value));
       onChange(path, value);
+      _this.setState({
+        value: value
+      });
     });
     _this.state = {
       value: null
@@ -313,7 +316,7 @@ var DatNumber = /*#__PURE__*/function (_Component) {
       var _this$props3 = this.props,
         min = _this$props3.min,
         max = _this$props3.max;
-      var value = this.props.value.value;
+      var value = this.state.value;
       return /*#__PURE__*/React.createElement(Slider, {
         value: value,
         min: min,
@@ -359,7 +362,7 @@ var DatNumber = /*#__PURE__*/function (_Component) {
         min: min,
         max: max,
         inputMode: "numeric",
-        value: this.props.value,
+        value: this.state.value,
         style: {
           width: "".concat(inputWidth, "%")
         },
@@ -367,20 +370,26 @@ var DatNumber = /*#__PURE__*/function (_Component) {
       }))));
     }
   }], [{
-    key: "getDerivedStateFromProps",
-    value: function getDerivedStateFromProps(nextProps) {
-      var min = nextProps.min,
-        max = nextProps.max,
-        step = nextProps.step;
-      var nextValue = applyConstraints({
-        value: result(nextProps.data, nextProps.path),
-        min: min,
-        max: max,
-        step: step
-      });
-      return {
-        value: nextValue
-      };
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(nextProps) {
+      var minN = nextProps.minN,
+        maxN = nextProps.maxN,
+        stepN = nextProps.stepN;
+      var _this$props5 = this.props,
+        min = _this$props5.min,
+        max = _this$props5.max,
+        step = _this$props5.step;
+      if (minN !== min && max !== maxN && step !== stepN) {
+        var nextValue = applyConstraints({
+          value: result(nextProps.data, nextProps.path),
+          min: min,
+          max: max,
+          step: step
+        });
+        return {
+          value: nextValue
+        };
+      }
     }
   }]);
   return DatNumber;

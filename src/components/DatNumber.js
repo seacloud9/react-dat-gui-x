@@ -72,18 +72,22 @@ export default class DatNumber extends Component {
     this.state = { value: null };
   }
 
-  static getDerivedStateFromProps(nextProps) {
-    const { min, max, step } = nextProps;
-    const nextValue = applyConstraints({
-      value: result(nextProps.data, nextProps.path),
-      min,
-      max,
-      step
-    });
-
-    return {
-      value: nextValue
-    };
+  static componentDidUpdate(nextProps) {
+    const { minN, maxN, stepN } = nextProps;
+    const { min, max, step } = this.props;
+    if(minN !== min && max !== maxN && step !== stepN){
+      const nextValue = applyConstraints({
+        value: result(nextProps.data, nextProps.path),
+        min,
+        max,
+        step
+      });
+  
+      return {
+        value: nextValue
+      };
+    }
+   
   }
 
   handleChange = event => {
@@ -102,11 +106,12 @@ export default class DatNumber extends Component {
 
     _onUpdateValue(path, toNumber(value));
     onChange(path, value);
+    this.setState({value})
   };
 
   renderSlider(width) {
     const { min, max } = this.props;
-    const { value } = this.props.value;
+    const { value } = this.state;
 
     return (
       <Slider
@@ -158,7 +163,7 @@ export default class DatNumber extends Component {
               min={min}
               max={max}
               inputMode="numeric"
-              value={this.props.value}
+              value={this.state.value}
               style={{ width: `${inputWidth}%` }}
               onChange={this.handleChange}
             />
