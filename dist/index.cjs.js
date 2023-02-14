@@ -341,14 +341,14 @@ var DatNumber = /*#__PURE__*/function (_Component) {
         stepN = previoiusProps.stepN;
       var step = this.props.step;
       if (stepN !== step) {
-        var nextValue = applyConstraints({
+        applyConstraints({
           value: result__default["default"](step, previoiusProps.path),
           min: min,
           max: max,
           step: step
         });
         this.setState({
-          value: nextValue
+          value: step
         });
       }
     }

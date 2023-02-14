@@ -82,7 +82,7 @@ export default class DatNumber extends Component {
         max,
         step
       });
-      this.setState({value: nextValue})
+      this.setState({value: step})
     }
    
   }
