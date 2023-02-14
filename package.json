@@ -1,6 +1,6 @@
 {
   "name": "react-dat-gui-x",
-  "version": "4.2.74",
+  "version": "4.2.75",
   "description": "dat.GUI reimagined for React (forked from react-dat-gui)",
   "main": "dist/index.cjs.js",
   "exports": "./dist/index.cjs.js",
