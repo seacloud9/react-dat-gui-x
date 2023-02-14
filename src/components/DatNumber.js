@@ -69,7 +69,7 @@ export default class DatNumber extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { value: null };
+    this.state = { value: props.step };
   }
 
   componentDidUpdate(previoiusProps) {

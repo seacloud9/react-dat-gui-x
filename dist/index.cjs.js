@@ -329,7 +329,7 @@ var DatNumber = /*#__PURE__*/function (_Component) {
       onChange(path, value);
     });
     _this.state = {
-      value: null
+      value: props.step
     };
     return _this;
   }
