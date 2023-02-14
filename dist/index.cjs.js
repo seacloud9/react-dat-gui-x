@@ -444,7 +444,7 @@ var DatBoolean = /*#__PURE__*/function (_Component) {
       onChange(path, value);
     });
     _this.state = {
-      value: props.value
+      value: props.checked
     };
     return _this;
   }
@@ -494,7 +494,7 @@ _defineProperty__default["default"](DatBoolean, "defaultProps", {
   style: null,
   path: null,
   label: null,
-  value: null,
+  checked: null,
   onChange: function onChange() {
     return null;
   }
